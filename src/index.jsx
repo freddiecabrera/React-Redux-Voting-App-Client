@@ -7,15 +7,11 @@ import { ResultsContainer } from './components/Results'
 import { Router, Route, hashHistory } from 'react-router'
 import { Provider } from 'react-redux'
 import { store } from './components/Store'
+import { setState } from './action_creators'
+import io from 'socket.io-client'
 
-console.log(store.getState())
-store.dispatch({
-  type: 'SET_STATE',
-  state: {
-    vote: { pair: ['Friday', 'Next Friday'], tally: { 'Friday': 1} }
-  }
-})
-console.log(store.getState())
+export const socket = io(`${location.protocol}//${location.hostname}:8090`)
+socket.on('state', state => store.dispatch(setState(state)))
 
 const routes = (
  <Route component={App}>
