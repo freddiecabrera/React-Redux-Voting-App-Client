@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom'
 import { renderIntoDocument, scryRenderedDOMComponentsWithClass, Simulate } from 'react-addons-test-utils'
 import { List, Map } from 'immutable'
 import { expect } from 'chai'
-import Results from '../../src/components/Results'
+import { Results } from '../../src/components/Results'
 
 describe( 'Results', () => {
  it( 'renders entry vote counts or 0', () => {
